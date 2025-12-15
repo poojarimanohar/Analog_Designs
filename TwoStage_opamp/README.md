@@ -108,11 +108,13 @@ The amplifier demonstrates **good stability** due to proper Miller compensation.
 ## 📸 Waveforms & Plots
 
 * **Bode Magnitude Plot (Gain vs Frequency)**
-  
+  <img width="756" height="639" alt="image" src="https://github.com/user-attachments/assets/aebe348c-aa63-4483-85ef-f7fe5001d18b" />
+
 
 
 * **Bode Phase Plot (Phase vs Frequency)**
-  
+  <img width="747" height="638" alt="image" src="https://github.com/user-attachments/assets/d411a083-4bb2-4dc2-a1cc-b86037d5c859" />
+
 
 
 ---
