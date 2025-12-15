@@ -89,7 +89,7 @@ The amplifier demonstrates:
 * Improved bandwidth
 * Enhanced overall AC performance
 
-<img width="708" height="540" alt="image" src="https://github.com/user-attachments/assets/fd927e26-800d-4292-bbce-36e06abe1792" />
+
 
 
 ---
