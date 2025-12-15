@@ -88,7 +88,9 @@ The amplifier demonstrates:
 * Higher DC gain
 * Improved bandwidth
 * Enhanced overall AC performance
+  
 
+<img width="883" height="632" alt="image" src="https://github.com/user-attachments/assets/6aa3001a-41d8-45a5-a558-96d6c5afd570" />
 
 
 
