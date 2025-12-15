@@ -1,110 +1,155 @@
-Telescopic CMOS Operational Amplifier
-Sky130A | Xschem | NGSpice
-📌 Project Overview
+# Telescopic CMOS Operational Amplifier
 
-This project presents the design and AC performance analysis of a Telescopic CMOS Operational Amplifier using the SkyWater 130nm (Sky130A) PDK.
-The schematic is implemented in Xschem, and simulations are carried out using NGSpice.
+**Sky130A | Xschem | NGSpice**
 
-The main objective is to study the high-gain characteristics, frequency response, and the effect of bias voltage, bias current, and transistor sizing (W/L) on the amplifier performance.
-🛠️ Tools & Technology
+---
 
-    Xschem – Schematic capture
-    NGSpice – Circuit simulation
-    SkyWater 130nm (Sky130A) PDK
-    Linux environment
+## 📌 Project Overview
 
-🧩 Circuit Architecture
+This project presents the **design and AC performance analysis of a Telescopic CMOS Operational Amplifier** using the **SkyWater 130 nm (Sky130A) PDK**. The schematic is implemented in **Xschem**, and simulations are carried out using **NGSpice**.
 
-The Telescopic Op-Amp is a single-stage, high-gain amplifier that uses cascoding to increase output resistance.
-🔹 Key Blocks
+The primary objective is to study **high-gain behavior**, **frequency response**, and the impact of **bias voltages, bias current, and transistor sizing (W/L)** on overall amplifier performance.
 
-    NMOS differential input pair
-    NMOS and PMOS cascode transistors
-    Current source tail bias
-    Single-ended output node
+---
 
-🔹 Characteristics
+## 🛠️ Tools & Technologies
 
-    High intrinsic gain
-    Low power consumption
-    Limited output swing compared to two-stage op-amps
-    Suitable for high-speed applications
+* **Xschem** – Schematic capture
+* **NGSpice** – Circuit simulation
+* **SkyWater 130 nm (Sky130A) PDK**
+* **Linux environment**
 
-⚙️ Simulation Setup
-AC Analysis
+---
 
-AC analysis is performed to evaluate the gain vs frequency response.
+## 🧩 Circuit Architecture
 
+The **Telescopic Op-Amp** is a **single-stage, high-gain amplifier** that employs **cascoding** to significantly increase output resistance and intrinsic gain.
+
+### 🔹 Key Blocks
+
+* NMOS differential input pair
+* NMOS and PMOS cascode transistors
+* Tail current source biasing
+* Single-ended output node
+
+### 🔹 Characteristics
+
+* High intrinsic voltage gain
+* Low power consumption
+* Limited output swing compared to two-stage op-amps
+* Well suited for high-speed analog applications
+
+---
+
+## ⚙️ Simulation Setup
+
+### 🔹 AC Analysis
+
+AC analysis is performed to evaluate the **gain vs. frequency response**:
+
+```spice
 .ac dec 100 1 1e9
+```
 
-Schematic
-Screenshot 2025-12-14 121019
-Model Include
+### 🔹 Model File Inclusion
 
+```spice
 .lib <path_to_sky130_models>/sky130.lib.spice tt
+```
 
-📈 Simulation Results
-🔹 Initial Gain–Frequency Response
+### 🔹 Schematic
 
-    Moderate DC gain observed
-    Early roll-off due to biasing and device sizing
-    Limited bandwidth optimization
+<img width="1545" height="863" alt="image" src="https://github.com/user-attachments/assets/bc1a707a-64e8-474d-a283-9a71eaf4cf97" />
 
-image
-🔹 Improved Gain–Frequency Response
+
+---
+
+## 📈 Simulation Results
+
+### 🔹 Initial Gain–Frequency Response
+
+* Moderate DC gain observed
+* Early roll-off due to suboptimal biasing and device sizing
+* Limited bandwidth
+
+<img width="615" height="508" alt="image" src="https://github.com/user-attachments/assets/67c19e12-8336-46d2-a67b-4869b2f37a98" />
+
+
+### 🔹 Improved Gain–Frequency Response
 
 After tuning the following parameters:
 
-    Bias voltages
-    Tail current
-    Transistor W/L ratios
+* Bias voltages
+* Tail current
+* Transistor W/L ratios
 
-The amplifier shows:
+The amplifier demonstrates:
 
-    Improved DC gain
-    Better frequency response
-    Enhanced overall performance
+* Higher DC gain
+* Improved bandwidth
+* Enhanced overall AC performance
 
-Screenshot 2025-11-27 235254
-✅ Performance Summary (Qualitative)
-Parameter 	Observation
-DC Gain 	Improved after bias & W/L tuning
-Bandwidth 	Increased
-Power 	Low (single-stage design)
-Stability 	Inherently stable (single dominant pole)
-🧠 Design Insights
+<img width="708" height="540" alt="image" src="https://github.com/user-attachments/assets/fd927e26-800d-4292-bbce-36e06abe1792" />
 
-    Cascoding significantly increases output resistance → higher gain
 
-    Proper biasing is critical for:
-        Keeping transistors in saturation
-        Maximizing gain
+---
 
-    Telescopic op-amps trade output swing for high speed and gain
+## ✅ Performance Summary (Qualitative)
 
-    Single-stage nature avoids the need for Miller compensation
+| Parameter | Observation                              |
+| --------- | ---------------------------------------- |
+| DC Gain   | Improved after bias and W/L optimization |
+| Bandwidth | Increased                                |
+| Power     | Low (single-stage design)                |
+| Stability | Inherently stable (single dominant pole) |
 
-📚 Learning Outcomes
+---
 
-    Understanding telescopic op-amp architecture
-    Hands-on experience with Sky130A PDK
-    Biasing and sizing impact on analog performance
-    AC analysis using NGSpice
+## 🧠 Design Insights
 
-📄 License
+* Cascoding significantly increases output resistance, leading to higher gain
+* Proper biasing is critical to:
 
-This project is intended for educational and academic purposes only.
-🔍 How to Find the SKY130 Model File??
+  * Maintain all transistors in saturation
+  * Maximize small-signal gain
+* Telescopic op-amps trade output swing for high gain and speed
+* Single-stage architecture avoids the need for Miller compensation
 
-If you need to locate the SKY130 model file (sky130.lib.spice) on your Linux system, run this command:
+---
 
+## 📚 Learning Outcomes
+
+* Understanding telescopic op-amp architecture
+* Hands-on experience with the Sky130A PDK
+* Impact of biasing and transistor sizing on analog performance
+* AC analysis and frequency response evaluation using NGSpice
+
+---
+
+## 🔍 How to Locate the SKY130 Model File
+
+To find the **sky130.lib.spice** file on a Linux system, run:
+
+```bash
 sudo find / -type f -name "sky130.lib.spice" 2>/dev/null
+```
 
-This will search your entire filesystem and print the full path of the model file. And select the appropriate path and copy to file in the schmatic.
-How to Plot the frequency repsonse??
+Copy the appropriate path and include it in your Xschem schematic.
 
-Enter this command in the after simulatig in the ngspcie command terminal
+---
 
+## 📊 How to Plot Frequency Response in NGSpice
+
+After running the simulation, enter the following command in the NGSpice terminal:
+
+```spice
 plot db(v(vout)/v(vip))
+```
 
-Change the names according to the pins you used in the schematic.
+> ⚠️ Replace `vout` and `vip` with the actual node names used in your schematic.
+
+---
+
+## 📄 License
+
+This project is intended for **educational and academic purposes only**.
